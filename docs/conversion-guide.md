@@ -147,5 +147,16 @@ $ git add -A
 $ git commit -m 'Move file to prepare for conversion to JavaScript.'
 ```
 
-Once you've converted your file, you can run `git log --follow --
+Or if you want to move all the CoffeeScipt files within a directory and
+its subdirectory and you have access to a bash prompt:
+
+```
+$ for i in $(find . -name "*.coffee"); do git mv $i "${i%.coffee}.js" ; done
+$ git add -A
+$ git commit -m 'Moved all files to prepare for conversion to JavaScript.'
+```
+
+Once you've converted your file(s), you can run `git log --follow --
 path/to/file.js` and see the history of the `.coffee` file too.
+
+
